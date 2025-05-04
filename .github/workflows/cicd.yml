@@ -1,0 +1,18 @@
+name: Hello Github Actions
+on: push
+
+jobs:
+  hello-jobs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Run hello world script
+        run: |
+          echo "Hello"
+          echo "Github Actions!!"
+  goodbye-job:
+    runs-on: ubuntu-latest
+    steps:
+      - run : echo "Goodbye Github Actions!!"
