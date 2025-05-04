@@ -30,7 +30,7 @@ jobs:
       - name: Run Build an Image
         run: docker image build -t temp_api_image:latest .
 
-      - name: Configure AWS credenteials
+      - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
           aws-region: ${{ env.AWS_REGION }}
@@ -49,7 +49,7 @@ jobs:
           echo $ECR_REGISTRY/$ECR_REPOSITORY:${{ github.sha }} > api-image-uri.txt
 
       - name: Update the image uri file as an artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: api-image-uri
           path: api/api-image-uri.txt
@@ -70,7 +70,7 @@ jobs:
           role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
 
       - name: Download the artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: api-image-uri
           path: artifacts
