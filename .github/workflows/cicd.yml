@@ -9,7 +9,7 @@ env:
   AWS_REGION: us-east-1
   ECS_CLUSTER: my-app-cluster
   ECS_SERVICE: my-app-api-service
-  ECS_REPOSITORY: my-app-api
+  ECR_REPOSITORY: my-app-api
   ECS_TASK_DEFINITION: api/.aws/task-def-api.json
 
 permissions:
